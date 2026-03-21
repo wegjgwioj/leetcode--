@@ -1,4 +1,3 @@
-import math
 def getDigit(n:int):
     if not n :
         return [0]
@@ -13,20 +12,17 @@ def getDigit(n:int):
 
 '''
 def isHappy(n: int) -> bool:
-    if n==1 or n%10==0:
+    if n==1 :
         return True
     '''
     
     '''
     result=set()
-    digit=getDigit(n)
     curnumber = n
     while curnumber not in  result:
         result.add(curnumber)
         digit=getDigit(curnumber)
-
-        for _,key in enumerate(digit):
-            curnumber=key*key
+        curnumber = sum(key * key for key in digit) #重点 
         if curnumber == 1:
             return True    
     return False
